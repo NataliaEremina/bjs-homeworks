@@ -11,8 +11,19 @@ function calculateQuadraticEquation(){
 }
 
 function getResult(a,b,c){
-    // код для задачи №1 писать здесь
-    //return x;
+    let D = b**2 - 4 * a * c; // тут ведь можно написать Math.pow(b, 2)?
+    if (D < 0) {
+        console.log ("Корней нет");
+    } else if (D === 0) {
+            x = (-b) / (2 * a);
+            return x;
+        } else {
+            let x1 = -b + Math.sqrt(D) / (2 * a);
+            let x2 = -b + Math.sqrt(D) / (2 * a);
+            x = [x1 ,x2];
+            return x;
+            
+        }
 }
 
 function calculateDrinkTask(){
