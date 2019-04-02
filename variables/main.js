@@ -25,6 +25,6 @@ console.log (average);
 
 
 let name = 'Наталья';
-let message = 'Привет, мир! Меня зовут ' + name;
+let message = `Привет, мир! Меня зовут ${name}`;
 
 console.log (message);
