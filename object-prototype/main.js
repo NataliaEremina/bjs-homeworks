@@ -7,7 +7,17 @@ function initCheckBirthday() {
 }
 
 function checkBirthday(birthday) {
-    // код для задачи №1 писать здесь
+    let now = new Date();
+    let Date = new Date(year, month, date);
+    let birthday = Date.Date.now();
+    let diff = now - birthday;
+    let age = diff / ((31536000000 * 37) + (31622400000 * 12)); // с учетом високосных лет
+        if (age > 18) {
+            return "Клиент совершеннолетний";
+        } else {
+            return "Клиент несовершеннолетний";
+        }
+
 }
 
 function initPrintAnimalSound() {
@@ -21,7 +31,14 @@ function initPrintAnimalSound() {
 }
 
 function getAnimalSound(animal) {
-    // код для задачи №2 писать здесь
+    let sound = animal.sound;
+    if (animal = undefined) {
+        return null;
+    } else if (animal != undefined) {
+        return sound;
+    } else {
+        return sound;//добавила на всякий случай
+    }
 }
 
 function initCalculateStatement() {
@@ -35,5 +52,11 @@ function initCalculateStatement() {
 }
 
 function getAverageMark(marks) {
-    // код для задачи №3 писать здесь
+    let i = marks.length;
+    for (i = 0, i < marks.length, i++) {
+        let sum += marks[i];    
+    }
+    let avg = sum / marks.length;
+    let roundedAverage = avg.Math.round();
+    return roundedAverage;
 }
