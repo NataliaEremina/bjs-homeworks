@@ -33,26 +33,46 @@ function getSolutions( a, b, c ) {
         
     }
 
-//задание 2 - подскажите пожалуйста по верному ли  иду пути? немножко запуталась если честно
+//задание 2 - совсем запуталсь(
 
 function getPersonData( secretData ) {
+    let aaa = 'firstName';
+    let bbb = 'lastName';
     
-    let compare = {
-        aaa: 'firstName',
-        bbb: 'lastName',
-        show: function name (n) {
-            if (n = 0) {
-                return 'Родриго';
-            } else if (n=1) {
-                return 'Эмильо';
+    return {
+        aaa: name (n), //можно ли прописывать внутри первой функции вторую?
+        bbb: name (n)
+    };   
+}        
+function name (n) {
+    if (n = 0) {
+        return 'Родриго';
+        } else if (n=1) {
+            return 'Эмильо';
             } else {
                 return 'не существует';
             }
-        }
-    }
-return `{compare.aaa: compare.show(),
-    compare.bbb: compare.show()}`
-
 }
 
-//задание 3
+
+
+//задание 3 - подскажите пожалуйста верно ли мыслю
+
+function getAverageScore( data ) {
+    let journal = New Object(); // здесь ругается консоль - не могу понять почему
+    journal.science = "";
+    journal.marks = [];
+    journal.marksaverage = countaverage (data);
+    for (var prop in data) {
+       return journal.push( prop );
+}
+}
+
+function countaverage (marks) {
+    let sum = 0;
+    for (let i =0; i < marks.length; i++) {
+        sum += marks[i];
+    }
+    let result = sum / marks.length;
+    return result;
+}
