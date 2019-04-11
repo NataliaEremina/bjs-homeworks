@@ -8,9 +8,9 @@ function initCheckBirthday() {
 
 function checkBirthday(birthday) {
     let now = new Date();
-    let Date = new Date(year, month, date);
-    let birthday = Date.Date.now();
-    let diff = now - birthday;
+    let dateofbirthday = new Date(year, month, date);
+    let birthday = dateofbirthday.Date.now();
+    let diff = now - birthday; //в миллисекундах
     let age = diff / ((31536000000 * 37) + (31622400000 * 12)); // с учетом високосных лет
         if (age > 18) {
             return "Клиент совершеннолетний";
@@ -27,14 +27,15 @@ function initPrintAnimalSound() {
 
     const result = getAnimalSound(animal);
 
-    document.getElementById('sound').innerHTML = result;   
+    document.getElementById('sound').innerHTML = result;
+    //return result;   //в этой функции не задан return, почему?
 }
 
-function getAnimalSound(animal) {
+function getAnimalSound(animal) { // аргумент в функции animal это то же значение что и а константе const animal? из функции видна константа другой из-за этой строчки - const result = getAnimalSound(animal);?
     let sound = animal.sound;
-    if (animal = undefined) {
+    if (animal == undefined) {
         return null;
-    } else if (animal != undefined) {
+    } else if (animal !== undefined) {
         return sound;
     } else {
         return sound;//добавила на всякий случай
@@ -52,11 +53,12 @@ function initCalculateStatement() {
 }
 
 function getAverageMark(marks) {
+    let sum = 0;
     let i = marks.length;
     for (i = 0, i < marks.length, i++) {
-        let sum += marks[i];    
+        sum += marks[i];    
     }
-    let avg = sum / marks.length;
-    let roundedAverage = avg.Math.round();
+    let average = sum / marks.length; //последние три строчки кода у меня в IDE не подсвечены даже, почему они неверные?
+    let roundedAverage = Math.round(average);
     return roundedAverage;
 }
