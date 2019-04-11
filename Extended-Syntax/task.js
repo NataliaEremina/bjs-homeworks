@@ -33,7 +33,8 @@ function calculateDrinkTask(){
 
 function askDrink(name,dateOfBirthday){
     let today = new Date().getFullYear();
-    let age = today - dateOfBirthday;
+    let yearBirthday = dateOfBirthday.getFullYear();
+    let age = today - yearBirthday;
     let answer = (age > 18) ? `Не желаете ли олд-фэшн, ${name}?` : `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
     console.log(answer)
     return answer;
@@ -46,15 +47,19 @@ function calculateAverageRating(){
 }
 
 function getAverageMark(marks){
-    let mark = [marks];
-    if (mark.length > 5) {
-        console.log ("Количество оценок больше 5");
-        return mark.slice (0,4)
-    } else {let sum = 0; 
-        for (let m = 0; m <=5; m++){
+    let mark = 0;
+    let sum = 0;
+    if (marks.length > 5) {
+        console.log ("Количество оценок больше 5 - вычисляем по первым пяти оценкам"); // вывожу для пользователя информацию - правильно ли что с помощью консольлог?
+        mark = marks.slice (0,5);
+            for (let n = 0; n < mark.length; n++){
+            sum += mark[n];
+            }
+    return sum / mark.length;
+    } else {
+        for (let m = 0; m < marks.length; m++){
         sum += marks[m];
     }
-    sum / mark.length
+    return sum / marks.length
     }
-    return averageMark;
 }
