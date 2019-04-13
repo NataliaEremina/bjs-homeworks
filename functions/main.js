@@ -1,6 +1,6 @@
 "use strict";
 
-//задание 1 - не получается верно вычислить корни x1 и x2, не могу понять почему
+//задание 1 
 function getSolutions( a, b, c ) {
     let D = b**2 - 4 * a * c;
     if (D < 0) {
@@ -33,16 +33,17 @@ function getSolutions( a, b, c ) {
         
     }
 
-//задание 2 - совсем запуталсь(
+//задание 2 - запуталась как поместить свойства в объект
 
 function getPersonData( secretData ) {
-    let aaa = 'firstName';
-    let bbb = 'lastName';
+    let names = new Object();
+    names.aaa = 'firstName';
+    names.bbb = 'lastName';
     
-    return {
-        aaa: name (n), //можно ли прописывать внутри первой функции вторую?
-        bbb: name (n)
-    };   
+    return names.push ({
+        firstName: name (), //убрала name(n) как вы сказали - думала что укажу как в функции ниже - она смотрит на то что ввели 0 или 1
+        lastName: name ()
+    });   
 }        
 function name (n) {
     if (n = 0) {
@@ -56,16 +57,16 @@ function name (n) {
 
 
 
-//задание 3 - подскажите пожалуйста верно ли мыслю
+//задание 3 
 
 function getAverageScore( data ) {
-    let journal = New Object(); // здесь ругается консоль - не могу понять почему
-    journal.science = "";
-    journal.marks = [];
-    journal.marksaverage = countaverage (data);
-    for (var prop in data) {
-       return journal.push( prop );
-}
+    let journal = {};
+    journal.science = new Array(marks); //а как можно предусмотреть много предметов и еще посчитать и по всем среднюю?
+    
+    for (let item in marks) {
+        countaverage (marks);
+    }
+    
 }
 
 function countaverage (marks) {
@@ -76,3 +77,4 @@ function countaverage (marks) {
     let result = sum / marks.length;
     return result;
 }
+//а что значит строчка задания 5. Предусмотрите работу программы для случая, когда предметов в объекте data будет менее 10. - не понимаю что нужно сделать?
