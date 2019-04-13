@@ -47,19 +47,13 @@ function calculateAverageRating(){
 }
 
 function getAverageMark(marks){
-    let mark = 0;
-    let sum = 0;
+    let sum;
     if (marks.length > 5) {
-        console.log ("Количество оценок больше 5 - вычисляем по первым пяти оценкам"); // вывожу для пользователя информацию - правильно ли что с помощью консольлог?
-        mark = marks.slice (0,5);
-            for (let n = 0; n < mark.length; n++){
-            sum += mark[n];
-            }
-    return sum / mark.length;
-    } else {
-        for (let m = 0; m < marks.length; m++){
-        sum += marks[m];
+        console.log ("Количество оценок больше 5 - вычисляем по первым пяти оценкам");
+        marks.slice (0,5);        
+    }        
+        for (let n = 0; n < marks.length; n++){
+        sum += marks[n];
     }
-    return sum / marks.length
+    return sum / marks.length;
     }
-}
