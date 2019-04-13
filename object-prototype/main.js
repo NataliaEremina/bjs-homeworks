@@ -7,16 +7,21 @@ function initCheckBirthday() {
 }
 
 function checkBirthday(birthday) {
-    let now = new Date();
-    let dateofbirthday = new Date(year, month, date);
-    let birthday = dateofbirthday.Date.now();
-    let diff = now - birthday; //в миллисекундах
-    let age = diff / ((31536000000 * 37) + (31622400000 * 12)); // с учетом високосных лет
-        if (age > 18) {
-            return "Клиент совершеннолетний";
-        } else {
-            return "Клиент несовершеннолетний";
-        }
+    let today = new Date();
+    let dateofbirthday = new Date(birthday);
+    let diff = today - dateofbirthday; //в миллисекундах
+    let daysnv = 31536000000; //мс в невисокосном
+    let daysv = 31622400000; //мс в високосном;
+    let age = diff / daysnv;  // без учета високосных лет
+    /*for (i = today.getFullYear()-1, i < dateofbirthday.getFullYear(), i-4) { 
+       // age = diff / daysv; 
+    //}
+    чтобы учесть високосные нужно написать цикл? я что-то запуталась*/
+    if (age > 18) {
+        return "Клиент совершеннолетний";
+    } else {
+        return "Клиент несовершеннолетний";
+    }
 
 }
 
@@ -28,10 +33,10 @@ function initPrintAnimalSound() {
     const result = getAnimalSound(animal);
 
     document.getElementById('sound').innerHTML = result;
-    //return result;   //в этой функции не задан return, почему?
+    
 }
 
-function getAnimalSound(animal) { // аргумент в функции animal это то же значение что и а константе const animal? из функции видна константа другой из-за этой строчки - const result = getAnimalSound(animal);?
+function getAnimalSound(animal) {
     let sound = animal.sound;
     if (animal == undefined) {
         return null;
@@ -54,11 +59,10 @@ function initCalculateStatement() {
 
 function getAverageMark(marks) {
     let sum = 0;
-    let i = marks.length;
     for (i = 0, i < marks.length, i++) {
         sum += marks[i];    
     }
-    let average = sum / marks.length; //последние три строчки кода у меня в IDE не подсвечены даже, почему они неверные?
-    let roundedAverage = Math.round(average);
+    let averages = sum / marks.length;
+    let roundedAverage = Math.round(averages);
     return roundedAverage;
 }
