@@ -41,19 +41,19 @@ function askDrink(name,dateOfBirthday){
 }
 
 function calculateAverageRating(){
-    let marks = window.marks.value.split("").map(Number);
+    let marks = window.marks.value.split("").map(Number).filter((n)=> !isNaN(n) && n > 0);
     let averageMark = getAverageMark(marks);
     window.averageMark.textContent = averageMark;
 }
 
-function getAverageMark(marks){
-    let sum;
+function getAverageMark(marks) {
     if (marks.length > 5) {
         console.log ("Количество оценок больше 5 - вычисляем по первым пяти оценкам");
-        marks.slice (0,5);        
-    }        
-        for (let n = 0; n < marks.length; n++){
-        sum += marks[n];
+        marks = marks.slice (0,5);        
+    }  
+    let sum = 0;
+    for (let n = 0; n < marks.length; n++){
+    sum += marks[n];
     }
     return sum / marks.length;
     }
