@@ -8,21 +8,15 @@ function initCheckBirthday() {
 
 function checkBirthday(birthday) {
     let today = new Date();
-    let dateofbirthday = new Date(birthday);
-    let diff = today - dateofbirthday; //в миллисекундах
+    let today_ms = Date.now(today); //1555304437749
+    let dateofbirthday = Date.now(birthday); //1555304508462
+    let diff = today_ms - dateofbirthday; //в миллисекундах
     let daysnv = 31536000000; //мс в невисокосном
     let daysv = 31622400000; //мс в високосном;
-    let age = diff / daysnv;  // без учета високосных лет
-    /*for (i = today.getFullYear()-1, i < dateofbirthday.getFullYear(), i-4) { 
-       // age = diff / daysv; 
-    //}
-    чтобы учесть високосные нужно написать цикл? я что-то запуталась*/
-    if (age > 18) {
-        return "Клиент совершеннолетний";
-    } else {
-        return "Клиент несовершеннолетний";
-    }
-
+    let av_days = (daysnv + daysv) / 2; //усредненные мс в невисокосном и високосном годах
+    let age = diff / av_days;
+    console.log (diff);
+    return age > 18;
 }
 
 function initPrintAnimalSound() {
@@ -38,9 +32,9 @@ function initPrintAnimalSound() {
 
 function getAnimalSound(animal) {
     let sound = animal.sound;
-    if (animal == undefined) {
+    if (animal.sound == undefined) {
         return null;
-    } else if (animal !== undefined) {
+    } else if (animal.sound !== undefined) {
         return sound;
     } else {
         return sound;//добавила на всякий случай
@@ -59,7 +53,7 @@ function initCalculateStatement() {
 
 function getAverageMark(marks) {
     let sum = 0;
-    for (i = 0, i < marks.length, i++) {
+    for (let i = 0; i < marks.length; i++) {
         sum += marks[i];    
     }
     let averages = sum / marks.length;
