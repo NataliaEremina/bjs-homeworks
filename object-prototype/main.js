@@ -6,19 +6,20 @@ function initCheckBirthday() {
     document.getElementById('disclaimer').innerHTML = result;   
 }
 
+
 function checkBirthday(birthday) {
     let today = new Date();
-    let today_ms = Date.now(today); //1555304437749
-    let dateofbirthday = Date.now(birthday); //1555304508462
-    let diff = today_ms - dateofbirthday; //в миллисекундах
+    //let today_ms = Date.now(today); //1555304437749
+    let dateofbirthday = new Date(birthday); //1555304508462
+    let dateofbirthday_ms = +dateofbirthday;
+    let diff = today - dateofbirthday_ms; //в миллисекундах
     let daysnv = 31536000000; //мс в невисокосном
     let daysv = 31622400000; //мс в високосном;
     let av_days = (daysnv + daysv) / 2; //усредненные мс в невисокосном и високосном годах
     let age = diff / av_days;
     console.log (diff);
     return age > 18;
-}
-
+    }
 function initPrintAnimalSound() {
     const animal = {
         sound: 'grrrr',
