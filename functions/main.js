@@ -33,29 +33,18 @@ function getSolutions( a, b, c ) {
         
     }
 
-//задание 2 - запуталась как и где указать aaa и bbb и как вернуть объект со свойствами
+//задание 2 
 
-function getPersonData( secretData ) {
+function getPersonData (secretData) {
     let names = new Object();
-    secretData.firstName = names.firstName;
-    secretData.lastName = names.lastName;
-    for (var key in secretData) {
-        aaa = 'firstName';
-        bbb = 'lastName';
-        result = name (secretData[key])
-        return names[key] = result;
-    }
-    
+    names.firstName = secretData.aaa;
+    names.lastName = secretData.bbb;
+    names.name = name (n);
+    return {firstName: names.firstName, lastName: names.lastName};   
 }
       
-function name (n) {
-    if (n == 0) {
-        return 'Родриго';
-        } else if (n == 1) {
-            return 'Эмильо';
-            } else {
-                return 'не существует';
-            }
+function name ( n ) {
+    return (n === 0) ? 'Родриго' : 'Эмильо';
 }
 
 
@@ -63,18 +52,23 @@ function name (n) {
 //задание 3 
 
 function getAverageScore( data ) {
-    let journal = new Object();
     
+    let journal = new Object();
     for (let item in data) {
-       let average = countaverage (data[item]); //среднее по каждому предмету
-        journal[item] = average;
+        journal.item = countaverage(data.item);
     }
-    for (let prop in data[item]) {
-        let sum = countaverage (data[item][prop]);
-        journal[item][prop] = sum; //среднее по всем
+    
+
+    let sum_subj = 0;
+    for (let n =0; n < journal.subject.length; n++) {
+        sum_subj += journal.subject[n];
     }
-    return // не могу понять что возвращать
+    let result_subj = sum_subj / journal.subject.length;
+    journal.result_subj = result_subj;
+
+    return journal;
 }
+
 
 function countaverage (marks) {
     let sum = 0;
@@ -84,3 +78,4 @@ function countaverage (marks) {
     let result = sum / marks.length;
     return result;
 }
+
