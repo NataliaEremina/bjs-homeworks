@@ -32,12 +32,9 @@ function getSolutions( a, b, c ) {
 //задание 2 
 
 function getPersonData (secretData) {
-    let names = new Object();
-    names.firstName = secretData.aaa;
-    names.lastName = secretData.bbb;
-    return {firstName: name (secretData.aaa), lastName: name (secretData.bbb)};   
-}
-      
+    return {firstName: name (secretData.aaa), lastName: name (secretData.bbb)};  
+} 
+
 function name ( n ) {
     return (n === 0) ? 'Родриго' : 'Эмильо';
 }
@@ -46,23 +43,26 @@ function name ( n ) {
 
 //задание 3 
 
-function getAverageScore( data ) {
+function getAverageScore ( data ) {
     
     let journal = new Object();
+    let sum_subj = 0;
+    let sum_av = 0;
+    
     for (let item in data) {
-        journal.item = countaverage(data[item]);
-        let sum_subj = 0;
+        journal[item] = countaverage(data[item]);
+        sum_av += journal[item];
         sum_subj ++;
-        let average = sum_subj / journal.item.length;
-        journal.average = average;
     }
 
+    let average = sum_av / sum_subj;
+    journal.average = average;
+    
     return journal;
 }
 
 
 function countaverage (marks) {
-    marks = [];
     let sum = 0;
     for (let i =0; i < marks.length; i++) {
         sum += marks[i];
