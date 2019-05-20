@@ -9,7 +9,7 @@ function initCheckBirthday() {
 
 function checkBirthday(birthday) {
     let today = new Date();
-    let today_ms = Date.now(today); 
+    let today_ms = Date.now(); 
     let dateofbirthday = new Date(birthday); // в консоли invalid date
     let dateofbirthday_ms = +dateofbirthday; //в консоли NaN
     let diff = today_ms - dateofbirthday_ms; //в консоли NaN
@@ -35,10 +35,8 @@ function getAnimalSound(animal) {
     let sound = animal.sound;
     if (animal.sound == undefined) {
         return null;
-    } else if (animal.sound !== undefined) {
-        return sound;
     } else {
-        return sound;//добавила на всякий случай
+        return sound;
     }
 }
 
