@@ -14,8 +14,8 @@ function setDailyRhythm(wakeUpTime, bedTime) {
 
 function setAlarm(time, callback) {
     let clock = new Date;
-    let hours= clock.getHours().toString;
-    let mins= clock.getMinutes().toString;
+    let hours= clock.getHours();
+    let mins= clock.getMinutes();
     let datastr = hours+ ":" + mins;
     if (hours <10) {
         hours = "0" + hours;
@@ -23,7 +23,7 @@ function setAlarm(time, callback) {
     if (mins <10) {
         mins = "0" + mins;
     }
-    if (datastr === time){
+    if (datastr == time){
         return callback;
     } 
     
