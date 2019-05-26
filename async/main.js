@@ -13,20 +13,25 @@ function setDailyRhythm(wakeUpTime, bedTime) {
     
 
 function setAlarm(time, callback) {
-    let clock = new Date;
-    let hours= clock.getHours();
-    let mins= clock.getMinutes();
-    let datastr = hours+ ":" + mins;
-    if (hours <10) {
-        hours = "0" + hours;
-    }
-    if (mins <10) {
-        mins = "0" + mins;
-    }
-    if (datastr == time){
-        return callback;
-    } 
-    
+    return function () {
+        let clock = new Date;
+        let hours= clock.getHours();
+        let mins= clock.getMinutes();
+        
+        if (hours <10) {
+            hours = '0' + hours;
+        }
+        if (mins <10) {
+            mins = '0' + mins;
+        }
+        let hourss = hours.toString;
+        let minss = mins.toString;
+        let datastr = hourss+ ":" + minss;
+        if (datastr == time){
+            callback();
+        } 
     }
 
+    }
 
+setDailyRhythm('7:00','23:00');
